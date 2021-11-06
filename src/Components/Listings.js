@@ -45,7 +45,7 @@ function Listings(props) {
   return (
     <>
       <div
-        style={{ border: "5px ridge #4CA3DD", margin: "15px", padding: "20px" }}
+        style={{ border: "5px ridge #2451B7", margin: "15px", padding: "20px" }}
       >
         <nav
           className="navbar navbar-light py-3 justify-content-between"

@@ -56,12 +56,26 @@ function LoginPage(props) {
           paddingTop: "60px",
         }}
       >
-        <Paper elevation={3} style={{ padding: "20px" }}>
-          <div style={{ display: "flex", flexDirection: "column" }}>
+        <Paper
+          elevation={3}
+          style={{
+            padding: "20px",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
             <Typography
               variant="h5"
               align="center"
-              style={{ fontFamily: "serif", padding: "15px", fontSize: "35px" }}
+              style={{
+                fontFamily: "serif",
+                padding: "15px",
+                fontSize: "35px",
+              }}
             >
               Login
             </Typography>
