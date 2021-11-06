@@ -76,13 +76,12 @@ function Listings(props) {
         <div className="list-group" style={{ backgroundColor: "#E4F0FC" }}>
           {funds
             .filter((val) => {
-              if (searchItem === "") {
-                return val;
-              } else if (
+              if (searchItem === "") return val;
+              else if (
                 val.fundName.toLowerCase().includes(searchItem.toLowerCase())
-              ) {
+              )
                 return val;
-              }
+              else return <></>;
             })
             .map((fund, index) => {
               return (
