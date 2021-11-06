@@ -77,7 +77,6 @@ function SignUp() {
               <div
                 id="success"
                 style={{
-                  display: "none",
                   backgroundColor: "#99ff99",
                   border: "1px solid #009900",
                   borderRadius: "10px",
