@@ -25,7 +25,7 @@ function FundListing(props) {
 
   useEffect(() => {
     getData();
-  }, []);
+  });
 
   if (data?.data?.length > 0) {
     for (let i = 209; i >= 0; i--) {
