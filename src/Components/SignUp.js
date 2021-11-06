@@ -67,7 +67,10 @@ function SignUp() {
         style={{
           display: "flex",
           justifyContent: "center",
-          paddingTop: "50px",
+          alignItems: "center",
+          backgroundColor: "#f3e6e8",
+          backgroundImage: "linear-gradient(315deg, #f3e6e8 0%, #d5d0e5 74%)",
+          height: "100%",
         }}
       >
         <Paper elevation={3} style={{ padding: "20px", width: "40%" }}>

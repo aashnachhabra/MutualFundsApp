@@ -48,124 +48,125 @@ function LoginPage(props) {
     }
   };
   return (
-    <>
-      <div
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#d9e4f5",
+        backgroundImage: "linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%)",
+        height: "100%",
+      }}
+    >
+      <Paper
+        elevation={3}
         style={{
-          display: "flex",
-          justifyContent: "center",
-          paddingTop: "60px",
+          padding: "60px",
         }}
       >
-        <Paper
-          elevation={3}
+        <div
           style={{
-            padding: "20px",
+            display: "flex",
+            flexDirection: "column",
           }}
         >
-          <div
+          <Typography
+            variant="h5"
+            align="center"
             style={{
-              display: "flex",
-              flexDirection: "column",
+              fontFamily: "serif",
+              padding: "15px",
+              fontSize: "35px",
             }}
           >
-            <Typography
-              variant="h5"
-              align="center"
-              style={{
-                fontFamily: "serif",
-                padding: "15px",
-                fontSize: "35px",
-              }}
-            >
-              Login
-            </Typography>
-            <div
-              id="error"
-              style={{
-                backgroundColor: "#ffcccc",
-                border: "1px solid #ff4d4d",
-                borderRadius: "10px",
-                display: "none",
-                color: "#ff4d4d",
-                padding: "10px",
-                margin: "10px",
-                fontFamily: "serif",
-              }}
-            >
-              ERROR : Please enter a correct email and password
-              <br />
-              **Note that both fields may be case sensitive
-            </div>
-            <Formik
-              initialValues={initialValues}
-              onSubmit={onSubmit}
-              validationSchema={validationSchema}
-            >
-              {(props) => (
-                <Form>
-                  <div>
-                    <EmailIcon
-                      color="disabled"
-                      style={{ height: "50px", margin: "10px" }}
-                      fontSize="medium"
-                    />
-                    <Field
-                      as={TextField}
-                      required
-                      name="email"
-                      label="Email"
-                      type="text"
-                      style={{ width: "60%" }}
-                      autoComplete="current-password"
-                      helperText={
-                        <ErrorMessage name="email">
-                          {(msg) => <div style={{ color: "red" }}>{msg}</div>}
-                        </ErrorMessage>
-                      }
-                    />
-                  </div>
-                  <div>
-                    <LockOutlinedIcon
-                      color="disabled"
-                      style={{ height: "50px", margin: "10px" }}
-                      fontSize="medium"
-                    />
-                    <Field
-                      as={TextField}
-                      required
-                      name="password"
-                      id="outlined-password-input"
-                      label="Password"
-                      type="password"
-                      style={{ width: "60%" }}
-                      autoComplete="current-password"
-                      helperText={
-                        <ErrorMessage name="password">
-                          {(msg) => <div style={{ color: "red" }}>{msg}</div>}
-                        </ErrorMessage>
-                      }
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                    style={{ width: "35%", marginLeft: "100px" }}
-                    disabled={props.isSubmitting}
-                  >
-                    {props.isSubmitting ? "Loading" : "Sign in"}
-                  </Button>
-                </Form>
-              )}
-            </Formik>
-            <p style={{ textAlign: "center", padding: "20px" }}>
-              Don't have an account? <Link to="/signup">Create one</Link>
-            </p>
+            Login
+          </Typography>
+          <div
+            id="error"
+            style={{
+              backgroundColor: "#ffcccc",
+              border: "1px solid #ff4d4d",
+              borderRadius: "10px",
+              display: "none",
+              color: "#ff4d4d",
+              padding: "10px",
+              margin: "10px",
+              fontFamily: "serif",
+            }}
+          >
+            ERROR : Please enter a correct email and password
+            <br />
+            **Note that both fields may be case sensitive
           </div>
-        </Paper>
-      </div>
-    </>
+          <Formik
+            initialValues={initialValues}
+            onSubmit={onSubmit}
+            validationSchema={validationSchema}
+          >
+            {(props) => (
+              <Form>
+                <div>
+                  <EmailIcon
+                    color="disabled"
+                    style={{ height: "50px", margin: "10px" }}
+                    fontSize="medium"
+                  />
+                  <Field
+                    as={TextField}
+                    required
+                    name="email"
+                    label="Email"
+                    type="text"
+                    style={{ width: "60%" }}
+                    autoComplete="current-password"
+                    helperText={
+                      <ErrorMessage name="email">
+                        {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                      </ErrorMessage>
+                    }
+                  />
+                </div>
+                <div>
+                  <LockOutlinedIcon
+                    color="disabled"
+                    style={{ height: "50px", margin: "10px" }}
+                    fontSize="medium"
+                  />
+                  <Field
+                    as={TextField}
+                    required
+                    name="password"
+                    id="outlined-password-input"
+                    label="Password"
+                    type="password"
+                    style={{ width: "60%" }}
+                    autoComplete="current-password"
+                    helperText={
+                      <ErrorMessage name="password">
+                        {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                      </ErrorMessage>
+                    }
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  style={{ width: "35%", marginLeft: "100px" }}
+                  disabled={props.isSubmitting}
+                >
+                  {props.isSubmitting ? "Loading" : "Sign in"}
+                </Button>
+              </Form>
+            )}
+          </Formik>
+          <p style={{ textAlign: "center", padding: "20px" }}>
+            Don't have an account? <Link to="/signup">Create one</Link>
+          </p>
+        </div>
+      </Paper>
+    </div>
   );
 }
 export default withRouter(LoginPage);

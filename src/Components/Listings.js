@@ -44,67 +44,63 @@ function Listings(props) {
   };
   return (
     <>
-      <div
-        style={{ border: "5px ridge #2451B7", margin: "15px", padding: "20px" }}
+      <nav
+        className="navbar navbar-light py-3 justify-content-between"
+        style={{ backgroundColor: "#e3f2fd" }}
       >
-        <nav
-          className="navbar navbar-light py-3 justify-content-between"
-          style={{ backgroundColor: "#e3f2fd" }}
+        <span
+          className="navbar-brand"
+          style={{ fontSize: "49px", fontFamily: "serif" }}
         >
-          <span
-            className="navbar-brand"
-            style={{ fontSize: "49px", fontFamily: "serif" }}
-          >
-            Mutual Funds
-          </span>
-          <form className="form-inline">
-            <input
-              className="form-control mr-sm-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-              onChange={(e) => {
-                setSearchItem(e.target.value);
-              }}
-            />
-            <Button variant="contained" color="primary" onClick={clickHandler}>
-              Logout
-            </Button>
-          </form>
-        </nav>
+          Mutual Funds
+        </span>
+        <form className="form-inline">
+          <input
+            className="form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            onChange={(e) => {
+              setSearchItem(e.target.value);
+            }}
+          />
+          <Button variant="contained" color="primary" onClick={clickHandler}>
+            Logout
+          </Button>
+        </form>
+      </nav>
 
-        <div className="list-group" style={{ backgroundColor: "#E4F0FC" }}>
-          {funds
-            .filter((val) => {
-              return val.fundName
-                .toLowerCase()
-                .includes(searchItem.toLowerCase());
-            })
-            .map((fund, index) => {
-              return (
-                <div
-                  key={index}
-                  style={{ margin: "8px" }}
-                  className="list-group-item list-group-item-action flex-column align-items-start "
-                  onClick={() =>
-                    history.push({
-                      pathname: "/fundInfo",
-                      state: { data: fund.url },
-                    })
-                  }
-                >
-                  <Avatar src={fund.icon}></Avatar>
-                  <div className="d-flex w-100 justify-content-between">
-                    <h5 className="mb-1">{fund.fundName}</h5>
-                  </div>
-                  <p className="mb-1">
-                    <b>Fund House :</b> {fund.fundHouse}
-                  </p>
-                  <small>| Equity |</small>
+      <div className="list-group" style={{ backgroundColor: "#E4F0FC" }}>
+        {funds
+          .filter((val) => {
+            return val.fundName
+              .toLowerCase()
+              .includes(searchItem.toLowerCase());
+          })
+          .map((fund, index) => {
+            return (
+              <div
+                key={index}
+                style={{ margin: "8px" }}
+                className="list-group-item list-group-item-action flex-column align-items-start "
+                onClick={() =>
+                  history.push({
+                    pathname: "/fundInfo",
+                    state: { data: fund.url },
+                  })
+                }
+              >
+                <Avatar src={fund.icon}></Avatar>
+                <div className="d-flex w-100 justify-content-between">
+                  <h5 className="mb-1">{fund.fundName}</h5>
                 </div>
-              );
-            })}
-        </div>
+                <p className="mb-1">
+                  <b>Fund House :</b> {fund.fundHouse}
+                </p>
+                <small>| Equity |</small>
+              </div>
+            );
+          })}
       </div>
     </>
   );
