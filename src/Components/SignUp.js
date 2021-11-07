@@ -16,11 +16,13 @@ import * as Yup from "yup";
 
 function SignUp() {
   const [count, setCount] = useState(0);
+
   const initialValues = {
     username: "",
     email: "",
     password: "",
     gender: "",
+
     dob: "",
   };
 
@@ -48,13 +50,14 @@ function SignUp() {
     gender: Yup.string()
       .oneOf(["male", "female"], "Required")
       .required("Required"),
-    dob: Yup.date().required("Required"),
+    dob: Yup.date().required("Start Date is required"),
   });
   const onSubmit = (values, props) => {
     setTimeout(() => {
       props.resetForm();
       props.setSubmitting(false);
     }, 1000);
+    console.log(values);
     document.getElementById("success").style.display = "block";
     document.getElementById("show").style.display = "block";
 
@@ -68,12 +71,13 @@ function SignUp() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "#f3e6e8",
-          backgroundImage: "linear-gradient(315deg, #f3e6e8 0%, #d5d0e5 74%)",
+          backgroundColor: "#861657",
+          backgroundImage: "linear-gradient(326deg, #861657 0%, #ffa69e 74%)",
+
           height: "100%",
         }}
       >
-        <Paper elevation={3} style={{ padding: "20px", width: "40%" }}>
+        <Paper elevation={3} style={{ padding: "20px", width: "500px" }}>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div align="center" style={{ padding: "15px" }}>
               <Avatar></Avatar>
@@ -87,7 +91,7 @@ function SignUp() {
                   color: "#009900",
                   padding: "10px",
                   margin: "10px",
-                  fontFamily: "serif",
+                  fontFamily: "monospace, sans-serif",
                 }}
               >
                 Signup successful! Login to continue
@@ -96,7 +100,7 @@ function SignUp() {
             <Typography
               variant="h4"
               align="center"
-              style={{ fontFamily: "serif" }}
+              style={{ fontFamily: "monospace, sans-serif" }}
             >
               Create a new Account
             </Typography>
@@ -208,6 +212,10 @@ function SignUp() {
                       marginLeft: "135px",
                       marginTop: "40px",
                       padding: "10px",
+                      backgroundColor: "#861657",
+                      backgroundImage:
+                        "linear-gradient(326deg, #861657 0%, #ffa69e 74%)",
+                      fontFamily: "Poppins-Regular, sans-serif",
                     }}
                   >
                     {props.isSubmitting ? "Submitting" : "SIGN UP"}
@@ -218,7 +226,11 @@ function SignUp() {
             <div
               id="show"
               align="center"
-              style={{ padding: "20px", display: "none" }}
+              style={{
+                padding: "20px",
+                display: "none",
+                fontFamily: "monospace, sans-serif",
+              }}
             >
               <Link to="/login">Login to continue</Link>
             </div>

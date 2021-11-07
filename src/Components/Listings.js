@@ -50,7 +50,7 @@ function Listings(props) {
       >
         <span
           className="navbar-brand"
-          style={{ fontSize: "49px", fontFamily: "serif" }}
+          style={{ fontSize: "49px", fontFamily: "monospace, sans-serif" }}
         >
           Mutual Funds
         </span>
