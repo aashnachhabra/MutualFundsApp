@@ -64,6 +64,8 @@ function LoginPage(props) {
           elevation={3}
           style={{
             padding: "20px",
+            borderRadius: "20px",
+            border: " 2px ridge #cc6699 ",
           }}
         >
           <div

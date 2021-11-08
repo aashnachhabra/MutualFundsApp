@@ -22,7 +22,6 @@ function SignUp() {
     email: "",
     password: "",
     gender: "",
-
     dob: "",
   };
 
@@ -50,7 +49,7 @@ function SignUp() {
     gender: Yup.string()
       .oneOf(["male", "female"], "Required")
       .required("Required"),
-    dob: Yup.date().required("Start Date is required"),
+    dob: Yup.date().required("Required"),
   });
   const onSubmit = (values, props) => {
     setTimeout(() => {
@@ -73,11 +72,18 @@ function SignUp() {
           alignItems: "center",
           backgroundColor: "#861657",
           backgroundImage: "linear-gradient(326deg, #861657 0%, #ffa69e 74%)",
-
           height: "100%",
         }}
       >
-        <Paper elevation={3} style={{ padding: "20px", width: "500px" }}>
+        <Paper
+          elevation={3}
+          style={{
+            padding: "20px",
+            width: "500px",
+            border: " 2px ridge #cc6699 ",
+            borderRadius: "20px",
+          }}
+        >
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div align="center" style={{ padding: "15px" }}>
               <Avatar></Avatar>

@@ -48,21 +48,38 @@ function FundListing(props) {
         >
           <Typography
             variant="h4"
-            style={{ fontFamily: "serif", textDecoration: "underline" }}
+            style={{
+              fontFamily: "monospace, sans-serif",
+            }}
             gutterBottom
           >
             {data?.meta?.fund_house}
           </Typography>
-          <Typography variant="h6" style={{ fontFamily: "serif" }} gutterBottom>
+          <Typography
+            variant="h6"
+            style={{ fontFamily: "monospace, sans-serif" }}
+            gutterBottom
+          >
             <b>Scheme Type:</b> {data?.meta?.scheme_type}
           </Typography>
-          <Typography variant="h6" style={{ fontFamily: "serif" }} gutterBottom>
+          <Typography
+            variant="h6"
+            style={{ fontFamily: "monospace, sans-serif" }}
+            gutterBottom
+          >
             <b>Scheme Category :</b> {data?.meta?.scheme_category}
           </Typography>
-          <Typography variant="h6" style={{ fontFamily: "serif" }} gutterBottom>
+          <Typography
+            variant="h6"
+            style={{ fontFamily: "monospace, sans-serif" }}
+            gutterBottom
+          >
             <b>Scheme Name :</b> {data?.meta?.scheme_name}
           </Typography>
-          <Typography variant="h6" style={{ fontFamily: "serif" }}>
+          <Typography
+            variant="h6"
+            style={{ fontFamily: "monospace, sans-serif" }}
+          >
             <b> Latest Nav :</b> ₹ {data?.data?.length > 0 && data.data[0]?.nav}
           </Typography>
         </Paper>
@@ -93,7 +110,11 @@ function FundListing(props) {
             />
           </AreaChart>
         </ResponsiveContainer>
-        <Typography variant="h6" align="center" style={{ fontFamily: "serif" }}>
+        <Typography
+          variant="h6"
+          align="center"
+          style={{ fontFamily: "monospace, sans-serif" }}
+        >
           2021 Analysis
         </Typography>
       </div>
