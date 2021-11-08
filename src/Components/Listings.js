@@ -46,11 +46,18 @@ function Listings(props) {
     <>
       <nav
         className="navbar navbar-light py-3 justify-content-between"
-        style={{ backgroundColor: "#e3f2fd" }}
+        style={{
+          backgroundColor: " #aee1f9",
+          backgroundImage: "linear-gradient(315deg, #aee1f9 0%, #f6ebe6 74%)",
+        }}
       >
+        <Avatar
+          src="/icons/mutualfundlogo.png"
+          style={{ width: "100px", height: "100px", marginLeft: "50px" }}
+        ></Avatar>
         <span
           className="navbar-brand"
-          style={{ fontSize: "49px", fontFamily: "monospace, sans-serif" }}
+          style={{ fontSize: "50px", fontFamily: "monospace, sans-serif" }}
         >
           Mutual Funds
         </span>
@@ -81,7 +88,11 @@ function Listings(props) {
             return (
               <div
                 key={index}
-                style={{ margin: "8px" }}
+                style={{
+                  margin: "8px",
+                  marginLeft: "5px",
+                  borderLeft: "10px solid #aee1f9",
+                }}
                 className="list-group-item list-group-item-action flex-column align-items-start "
                 onClick={() =>
                   history.push({

@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { withRouter } from "react-router";
 import * as Yup from "yup";
-
 function LoginPage(props) {
   const { history } = props;
   const initialValues = {
@@ -56,7 +55,6 @@ function LoginPage(props) {
           alignItems: "center",
           backgroundColor: "#861657",
           backgroundImage: "linear-gradient(326deg, #861657 0%, #ffa69e 74%)",
-
           height: "100%",
         }}
       >

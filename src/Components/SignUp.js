@@ -56,10 +56,8 @@ function SignUp() {
       props.resetForm();
       props.setSubmitting(false);
     }, 1000);
-    console.log(values);
     document.getElementById("success").style.display = "block";
     document.getElementById("show").style.display = "block";
-
     setData(values);
   };
 
