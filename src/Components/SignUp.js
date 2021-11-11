@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Typography } from "@material-ui/core";
-import { Paper } from "@material-ui/core";
+import { Paper, Box } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 import { Avatar } from "@material-ui/core";
@@ -10,6 +10,9 @@ import { Radio } from "@material-ui/core";
 import { FormLabel } from "@material-ui/core";
 import { FormControlLabel } from "@material-ui/core";
 import { FormHelperText } from "@material-ui/core";
+import moment from "moment";
+import MomentUtils from "@date-io/moment";
+import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
 import { Link } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -22,7 +25,7 @@ function SignUp() {
     email: "",
     password: "",
     gender: "",
-    dob: "",
+    date: null,
   };
 
   useEffect(() => {
@@ -49,8 +52,13 @@ function SignUp() {
     gender: Yup.string()
       .oneOf(["male", "female"], "Required")
       .required("Required"),
-    dob: Yup.date().required("Required"),
+    date: Yup.date()
+      .nullable()
+      .typeError("Invalid Date")
+      .max(new Date(), "Are you a time traveller?")
+      .required("Required"),
   });
+
   const onSubmit = (values, props) => {
     setTimeout(() => {
       props.resetForm();
@@ -191,21 +199,27 @@ function SignUp() {
                     </ErrorMessage>
                   </FormHelperText>
 
-                  <Field
-                    as={TextField}
-                    id="dob"
-                    label="Date of Birth"
-                    type="text"
-                    name="dob"
-                    placeholder="mm-dd-yyyy"
-                    style={{ display: "flex", width: "50%" }}
-                    helperText={
-                      <ErrorMessage name="dob">
-                        {(msg) => <div style={{ color: "red" }}>{msg}</div>}
-                      </ErrorMessage>
-                    }
-                  />
-
+                  <Box width="100%" mb={2} style={{ marginTop: "15px" }}>
+                    <MuiPickersUtilsProvider utils={MomentUtils}>
+                      <DatePicker
+                        autoOk
+                        id="date-picker-dialog"
+                        label="Date of Bith"
+                        inputVariant="outlined"
+                        format="DD/MM/yyyy"
+                        value={props.values.date}
+                        onChange={(value) => props.setFieldValue("date", value)}
+                        KeyboardButtonProps={{
+                          "aria-label": "change date",
+                        }}
+                        helperText={
+                          <ErrorMessage name="date">
+                            {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                          </ErrorMessage>
+                        }
+                      />
+                    </MuiPickersUtilsProvider>
+                  </Box>
                   <Button
                     type="submit"
                     variant="contained"
