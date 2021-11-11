@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router";
 import { Button, Avatar } from "@material-ui/core";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 const funds = [
   {
     fundName: "Axis Small Cap Fund Growth",
@@ -37,7 +38,7 @@ const funds = [
 ];
 
 function Listings(props) {
-  const { history } = props;
+  const history = useHistory();
   const [searchItem, setSearchItem] = useState("");
   const clickHandler = () => {
     history.push("/login");
@@ -53,7 +54,7 @@ function Listings(props) {
       >
         <Avatar
           src="/icons/mutualfundlogo.png"
-          style={{ width: "100px", height: "100px", marginLeft: "50px" }}
+          style={{ width: "100px", height: "100px", marginLeft: "30px" }}
         ></Avatar>
         <span
           className="navbar-brand"
@@ -90,7 +91,7 @@ function Listings(props) {
                 key={index}
                 style={{
                   margin: "8px",
-                  marginLeft: "5px",
+                  marginLeft: "2px",
                   borderLeft: "10px solid #aee1f9",
                 }}
                 className="list-group-item list-group-item-action flex-column align-items-start "
