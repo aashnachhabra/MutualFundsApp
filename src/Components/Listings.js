@@ -41,6 +41,7 @@ function Listings(props) {
   const history = useHistory();
   const [searchItem, setSearchItem] = useState("");
   const clickHandler = () => {
+    localStorage.setItem("isLoggedIn", false);
     history.push("/login");
   };
   return (

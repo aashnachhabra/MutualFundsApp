@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Typography } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
 import { Button } from "@material-ui/core";
@@ -9,43 +9,52 @@ import { Link } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { withRouter } from "react-router";
 import * as Yup from "yup";
+
 function LoginPage(props) {
   const { history } = props;
+
   const initialValues = {
     email: "",
     password: "",
   };
+  useEffect(() => {
+    localStorage.setItem("isLoggedIn", false);
+  }, []);
   function checkData(obj) {
     let found = false;
     for (let i = 1; i < localStorage.length; i++) {
       let userData = localStorage.getItem(`User details ${i}`);
       userData = JSON.parse(userData);
-      let email2 = userData.email;
-      let password2 = userData.password;
-      if (obj.email === email2 && obj.password === password2) {
+      let email2 = userData?.email;
+      let password2 = userData?.password;
+      if (obj?.email === email2 && obj?.password === password2) {
         found = true;
         break;
       }
     }
     return found;
   }
+
   const validationSchema = Yup.object().shape({
     email: Yup.string()
       .email("Please enter a valid email")
       .required("Required"),
     password: Yup.string().required("Required"),
   });
+
   const onSubmit = (values, props) => {
     setTimeout(() => {
       props.resetForm();
       props.setSubmitting(false);
     }, 1000);
     if (checkData(values) === true) {
+      localStorage.setItem("isLoggedIn", true);
       history.push("/funds");
     } else {
-      document.getElementById("error").style.display = "block";
+      return (document.getElementById("error").style.display = "block");
     }
   };
+
   return (
     <>
       <div
@@ -186,4 +195,5 @@ function LoginPage(props) {
     </>
   );
 }
+
 export default withRouter(LoginPage);
