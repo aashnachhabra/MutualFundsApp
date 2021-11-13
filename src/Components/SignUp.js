@@ -85,7 +85,7 @@ function SignUp() {
           style={{
             padding: "20px",
             width: "500px",
-            border: " 2px ridge #cc6699 ",
+            border: " 2px border #ADACA4 ",
             borderRadius: "20px",
           }}
         >

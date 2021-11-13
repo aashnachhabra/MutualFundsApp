@@ -72,7 +72,7 @@ function LoginPage(props) {
           style={{
             padding: "20px",
             borderRadius: "20px",
-            border: " 2px ridge #cc6699 ",
+            border: " 2px solid #ADACA4 ",
           }}
         >
           <div
