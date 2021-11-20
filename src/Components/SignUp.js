@@ -203,7 +203,7 @@ function SignUp() {
                       <DatePicker
                         autoOk
                         id="date-picker-dialog"
-                        label="Date of Bith"
+                        label="Date of Birth"
                         inputVariant="outlined"
                         format="DD/MM/yyyy"
                         value={props.values.date}
